@@ -7,11 +7,13 @@ namespace Santase.Logic
     {
         int firstPlayerTotalPoints;
         int secondPlayerTotalPoints;
+        int roundsCount;
 
         public SantaseGame()
         {
             this.firstPlayerTotalPoints = 0;
             this.secondPlayerTotalPoints = 0;
+            this.roundsCount = 0;
         }
 
         public int FirstPlayerTotalPoints
@@ -30,11 +32,20 @@ namespace Santase.Logic
             }
         }
 
+        public int RoundsPlayed
+        {
+            get
+            {
+                return this.roundsCount;
+            }
+        }
+
         public void StartGame()
         {
             while (!this.IsGameFinished())
             {
                 this.PlayRound();
+                this.roundsCount++;
             }
         }
 
