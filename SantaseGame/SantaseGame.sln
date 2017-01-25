@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santase.Logic", "Santase.Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santase.UI", "Santase.UI\Santase.UI.csproj", "{95C4EF04-AA75-4AF3-B2C7-2D3267712907}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaseTests", "SantaseTests\SantaseTests.csproj", "{E0861362-B80A-4C79-9A65-82D52A030933}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{95C4EF04-AA75-4AF3-B2C7-2D3267712907}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95C4EF04-AA75-4AF3-B2C7-2D3267712907}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95C4EF04-AA75-4AF3-B2C7-2D3267712907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0861362-B80A-4C79-9A65-82D52A030933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0861362-B80A-4C79-9A65-82D52A030933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0861362-B80A-4C79-9A65-82D52A030933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0861362-B80A-4C79-9A65-82D52A030933}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

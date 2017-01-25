@@ -47,7 +47,9 @@
     <Compile Include="Cards\Deck.cs" />
     <Compile Include="Contracts\IDeck.cs" />
     <Compile Include="Exeptions\InternalGameException.cs" />
-    <Compile Include="ISantaseGame.cs" />
+    <Compile Include="Contracts\ISantaseGame.cs" />
+    <Compile Include="GameRound.cs" />
+    <Compile Include="Contracts\IGameRound.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SantaseGame.cs" />
     <Compile Include="Tools\IEnumerableExtensions.cs" />

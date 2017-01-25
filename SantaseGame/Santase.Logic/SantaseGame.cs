@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Santase.Logic.Contracts;
+using System;
 
 namespace Santase.Logic
 {
@@ -37,13 +34,16 @@ namespace Santase.Logic
         {
             while (!this.IsGameFinished())
             {
-                this.PLayRound();
+                this.PlayRound();
             }
         }
 
-        private void PLayRound()
+        private void PlayRound()
         {
-            throw new NotImplementedException();
+            IGameRound round = new GameRound();
+            round.Start();
+            this.firstPlayerTotalPoints += round.TotalPointsWonByFirstPlayer;
+            this.secondPlayerTotalPoints += round.TotalPointsWonBySecondPlayer;
         }
 
         private bool IsGameFinished()

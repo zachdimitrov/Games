@@ -1,4 +1,4 @@
-﻿namespace Santase.Logic
+﻿namespace Santase.Logic.Contracts
 {
     public interface ISantaseGame
     {
