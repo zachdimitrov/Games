@@ -9,7 +9,7 @@ namespace Santase.Logic
 {
     public class GameRound : IGameRound
     {
-        public int TotalPointsWonByFirstPlayer
+        public PlayerPosition ClosedByPlayer
         {
             get
             {
@@ -17,7 +17,31 @@ namespace Santase.Logic
             }
         }
 
-        public int TotalPointsWonBySecondPlayer
+        public bool FirstPlayerHasHand
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public int FirstPlayerPoints
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool SecondPlayerHasHand
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public int SecondPlayerPoints
         {
             get
             {
