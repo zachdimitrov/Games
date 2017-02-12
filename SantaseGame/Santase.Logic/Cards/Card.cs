@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Santase.Logic.Exeptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,20 @@ namespace Santase.Logic.Cards
         public CardSuit Suit { get; private set; }
 
         public CardType Type { get; private set; }
+
+        public int GetValue()
+        {
+            switch (this.Type)
+            {
+                case CardType.Nine: return 0;
+                case CardType.Ten: return 10;
+                case CardType.Jack: return 2;
+                case CardType.Queen: return 3;
+                case CardType.King:return 4;
+                case CardType.Ace: return 11;
+                default: throw new InternalGameException("Invalid Card Type!");
+            }
+        }
 
         public override bool Equals(object obj)
         {

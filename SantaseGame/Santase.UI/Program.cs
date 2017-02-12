@@ -9,7 +9,7 @@ namespace Santase.UI
     {
         static void Main()
         {
-            ISantaseGame game = new SantaseGame();
+            ISantaseGame game = new SantaseGame(new ConsolePlayer(6, 10), new ConsolePlayer(10, 10), PlayerPosition.FirstPlayer);
             game.StartGame();
             Console.WriteLine("Game finished!");
             Console.WriteLine("{0} - {1}", game.FirstPlayerTotalPoints, game.SecondPlayerTotalPoints);

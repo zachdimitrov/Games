@@ -9,5 +9,7 @@ namespace Santase.Logic.Contracts
         Card GetTrumpCard { get; }
 
         void ChangeTrumpCard(Card newCard);
+
+        int CartsLeft { get; }
     }
 }

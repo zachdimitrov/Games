@@ -8,12 +8,18 @@ namespace Santase.Logic
         int firstPlayerTotalPoints;
         int secondPlayerTotalPoints;
         int roundsCount;
+        private IPlayer firstPlayer;
+        private IPlayer secondPlayer;
+        private PlayerPosition firstToPlay;
 
-        public SantaseGame()
+        public SantaseGame(IPlayer firstPlayer, IPlayer secondPlayer, PlayerPosition firstToPlay)
         {
             this.firstPlayerTotalPoints = 0;
             this.secondPlayerTotalPoints = 0;
             this.roundsCount = 0;
+            this.firstPlayer = firstPlayer;
+            this.secondPlayer = secondPlayer;
+            this.firstToPlay = firstToPlay;
         }
 
         public int FirstPlayerTotalPoints
@@ -51,7 +57,7 @@ namespace Santase.Logic
 
         private void PlayRound()
         {
-            IGameRound round = new GameRound();
+            IGameRound round = new GameRound(this.firstPlayer, this.secondPlayer, this.firstToPlay);
             round.Start();
             UpdatePoints(round);
         }
@@ -63,6 +69,7 @@ namespace Santase.Logic
                 if (round.FirstPlayerPoints < 66)
                 {
                     this.secondPlayerTotalPoints += 3;
+                    this.firstToPlay = PlayerPosition.FirstPlayer;
                     return;
                 }
             }
@@ -72,6 +79,24 @@ namespace Santase.Logic
                 if (round.SecondPlayerPoints < 66)
                 {
                     this.firstPlayerTotalPoints += 3;
+                    this.firstToPlay = PlayerPosition.SecondPlayer;
+                    return;
+                }
+            }
+
+            if (round.FirstPlayerPoints < 66 && round.SecondPlayerPoints < 66)
+            {
+                var winner = round.LastHandInPlayer;
+                if (winner == PlayerPosition.FirstPlayer)
+                {
+                    this.firstPlayerTotalPoints += 1;
+                    this.firstToPlay = PlayerPosition.SecondPlayer;
+                    return;
+                }
+                else
+                {
+                    this.secondPlayerTotalPoints += 1;
+                    this.firstToPlay = PlayerPosition.FirstPlayer;
                     return;
                 }
             }
@@ -81,14 +106,17 @@ namespace Santase.Logic
                 if (round.SecondPlayerPoints >= 33)
                 {
                     this.firstPlayerTotalPoints += 1;
+                    this.firstToPlay = PlayerPosition.SecondPlayer;
                 }
                 else if (round.SecondPlayerHasHand)
                 {
                     this.firstPlayerTotalPoints += 2;
+                    this.firstToPlay = PlayerPosition.SecondPlayer;
                 }
                 else
                 {
                     this.firstPlayerTotalPoints += 3;
+                    this.firstToPlay = PlayerPosition.SecondPlayer;
                 }
             }
             else if (round.FirstPlayerPoints < round.SecondPlayerPoints)
@@ -96,19 +124,22 @@ namespace Santase.Logic
                 if (round.FirstPlayerPoints >= 33)
                 {
                     this.secondPlayerTotalPoints += 1;
+                    this.firstToPlay = PlayerPosition.FirstPlayer;
                 }
                 else if (round.FirstPlayerHasHand)
                 {
                     this.secondPlayerTotalPoints += 2;
+                    this.firstToPlay = PlayerPosition.FirstPlayer;
                 }
                 else
                 {
                     this.secondPlayerTotalPoints += 3;
+                    this.firstToPlay = PlayerPosition.FirstPlayer;
                 }
             }
             else
             {
-                // Equal points
+                // Equal points => 0 points to each
             }
         }
 

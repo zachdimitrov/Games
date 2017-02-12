@@ -3,6 +3,7 @@ using Santase.Logic.Exeptions;
 using Santase.Logic.Tools;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Santase.Logic.Cards
 {
@@ -31,6 +32,14 @@ namespace Santase.Logic.Cards
             get
             {
                 return this.trumpCard;
+            }
+        }
+
+        public int CartsLeft
+        {
+            get
+            {
+                return this.listOFCards.Count;
             }
         }
 
