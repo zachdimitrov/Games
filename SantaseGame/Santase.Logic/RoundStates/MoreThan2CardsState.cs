@@ -51,7 +51,7 @@
             }
         }
 
-        public override void PlayHand(int cardsLeftInDeck)
+        internal override void PlayHand(int cardsLeftInDeck)
         {
             if (cardsLeftInDeck == 2)
             {

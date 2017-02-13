@@ -33,12 +33,15 @@
 
         public override PlayerAction GetTurn(PlayerTurnContext context, IPlayerActionValidator actionValidator)
         {
+            this.PrintGameInfo(context);
             while (true)
             {
                 PlayerAction playerAction = null;
 
-                Console.SetCursorPosition(0, this.row + 1);
-                Console.Write("Turn? [1-{0}]=Card; [T]=Change trump; [C]=Close: ", this.cards.Count);
+                Console.SetCursorPosition(1, this.row + 1);
+                Console.Write(new string(' ', 79));
+                Console.SetCursorPosition(1, this.row + 1);
+                Console.Write("Turn? [1-{0}]=Card; {1}: ", this.cards.Count, context.AmITheFirstPlayer ? "[T]=Change trump; [C]=Close: " : ": ");
                 var userActionAsString = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(userActionAsString))
                 {
@@ -65,7 +68,7 @@
                             // TODO: check if first
                             while (true)
                             {
-                                Console.SetCursorPosition(0, this.row + 2);
+                                Console.SetCursorPosition(1, this.row + 2);
                                 Console.Write("Announce {0} [Y / N]? ", possibleAnnounse.ToString());
                                 var userInput = Console.ReadLine();
                                 if (string.IsNullOrWhiteSpace(userInput))
@@ -109,8 +112,18 @@
                     continue;
                 }
 
-                if (actionValidator.IsValid(playerAction, context))
+                if (actionValidator.IsValid(playerAction, context, this.cards))
                 {
+                    if (playerAction.Type == PlayerActionType.PlayCard)
+                    {
+                        this.cards.Remove(playerAction.Card);
+                    }
+
+                    if(playerAction.Type == PlayerActionType.ChangeTrump)
+                    {
+                        this.cards.Remove(new Card(context.TrumpCard.Suit, CardType.Nine));
+                    }
+                    this.PrintGameInfo(context);
                     return playerAction;
                 }
                 else
@@ -119,6 +132,18 @@
                     continue;
                 }
             }
+        }
+
+        private void PrintGameInfo(PlayerTurnContext context)
+        {
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("Trump card: {0}        ", context.TrumpCard);
+            Console.SetCursorPosition(0, 1);
+            Console.WriteLine("Board: {0} - {1}       ", context.FirstPlayedCard, context.SecondPlayedCard);
+            Console.SetCursorPosition(0, 2);
+            Console.WriteLine("State: {0}             ", context.State.GetType().Name);
+            Console.SetCursorPosition(0, 3);
+            Console.WriteLine("Cards Left in Deck: {0}", context.CardsLeftInDeck);
         }
     }
 }

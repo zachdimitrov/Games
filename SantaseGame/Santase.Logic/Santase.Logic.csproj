@@ -45,6 +45,8 @@
     <Compile Include="Cards\CardType.cs" />
     <Compile Include="Cards\CardSuit.cs" />
     <Compile Include="Cards\Deck.cs" />
+    <Compile Include="CardWin.cs" />
+    <Compile Include="Contracts\ICardWin.cs" />
     <Compile Include="Contracts\IGameHand.cs" />
     <Compile Include="Contracts\IPlayer.cs" />
     <Compile Include="Contracts\IDeck.cs" />
@@ -71,7 +73,9 @@
     <Compile Include="Tools\IEnumerableExtensions.cs" />
     <Compile Include="Tools\RandomProvider.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -15,12 +15,12 @@ namespace Santase.Logic
         private IPlayer firstPlayer;
         private int firstPlayerPoins;
         private IList<Card> firstPlayerCards;
-        private IList<Card> firstPlayerCollectedCards;
+        private bool firstPlayerHasCollectedCards;
 
         private IPlayer secondPlayer;
         private int secondPlayerPoins;
         private IList<Card> secondPlayerCards;
-        private IList<Card> secondPlayerCollectedCards;
+        private bool secondPlayerHasCollectedCards;
 
         private PlayerPosition firstToPlay;
 
@@ -40,8 +40,8 @@ namespace Santase.Logic
             this.firstPlayerCards = new List<Card>();
             this.secondPlayerCards = new List<Card>();
 
-            this.firstPlayerCollectedCards = new List<Card>();
-            this.secondPlayerCollectedCards = new List<Card>();
+            this.firstPlayerHasCollectedCards = false;
+            this.secondPlayerHasCollectedCards = false;
 
             this.firstToPlay = firstToPlay;
             this.SetState(new StartRoundState(this));
@@ -61,7 +61,7 @@ namespace Santase.Logic
         {
             get
             {
-                return this.firstPlayerCollectedCards.Count > 0;
+                return this.firstPlayerHasCollectedCards;
             }
         }
 
@@ -77,7 +77,7 @@ namespace Santase.Logic
         {
             get
             {
-                return this.secondPlayerCollectedCards.Count > 0;
+                return this.secondPlayerHasCollectedCards;
             }
         }
 
@@ -108,34 +108,32 @@ namespace Santase.Logic
 
         private void PlayHand()
         {
-            IGameHand hand = new GameHand(this.firstToPlay, this.firstPlayer, this.secondPlayer, this.state, this.deck);
+            IGameHand hand = new GameHand(this.firstToPlay,  this.firstPlayer, this.firstPlayerCards,  this.secondPlayer, this.secondPlayerCards, this.state, this.deck);
             hand.Start();
             this.UpdatePoints(hand);
             this.firstToPlay = hand.Winner;
 
             if (hand.Winner == PlayerPosition.FirstPlayer)
             {
-                firstPlayerCollectedCards.Add(hand.FirstPlayerCard);
-                firstPlayerCollectedCards.Add(hand.SecondPlayerCard);
+                firstPlayerHasCollectedCards = true;
             }
             else
             {
-                secondPlayerCollectedCards.Add(hand.FirstPlayerCard);
-                secondPlayerCollectedCards.Add(hand.SecondPlayerCard);
+                secondPlayerHasCollectedCards = true;
             }
 
             this.firstPlayerCards.Remove(hand.FirstPlayerCard);
             this.secondPlayerCards.Remove(hand.SecondPlayerCard);
 
-            this.DrawNewCards();
-
-            this.state.PlayHand(this.deck.CartsLeft);
 
             if (hand.GameClosedBy == PlayerPosition.FirstPlayer || hand.GameClosedBy == PlayerPosition.SecondPlayer)
             {
-                this.state.Close();
                 this.gameClosedBy = hand.GameClosedBy;
+                this.state.Close();
             }
+
+            this.DrawNewCards();
+            this.state.PlayHand(this.deck.CartsLeft);
         }
 
         private void DrawNewCards()

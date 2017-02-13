@@ -5,6 +5,10 @@ namespace Santase.Logic.RoundStates
 {
     internal class FinalRoundState : BaseRoundState
     {
+        public FinalRoundState() : base(null)
+        {
+        }
+
         public FinalRoundState(IGameRound round) : base(round)
         {
         }
@@ -49,7 +53,7 @@ namespace Santase.Logic.RoundStates
             }
         }
 
-        public override void PlayHand(int cardsLeftInDeck)
+        internal override void PlayHand(int cardsLeftInDeck)
         {
         }
     }

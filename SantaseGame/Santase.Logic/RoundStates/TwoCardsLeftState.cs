@@ -51,7 +51,7 @@
             }
         }
 
-        public override void PlayHand(int cardsLeftInDeck)
+        internal override void PlayHand(int cardsLeftInDeck)
         {
             this.round.SetState(new FinalRoundState(this.round));
         }

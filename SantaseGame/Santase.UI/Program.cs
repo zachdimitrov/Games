@@ -2,6 +2,7 @@
 using Santase.Logic.Cards;
 using Santase.Logic.Contracts;
 using System;
+using System.Text;
 
 namespace Santase.UI
 {
@@ -9,6 +10,7 @@ namespace Santase.UI
     {
         static void Main()
         {
+            Console.OutputEncoding = Encoding.UTF8;
             ISantaseGame game = new SantaseGame(new ConsolePlayer(6, 10), new ConsolePlayer(10, 10), PlayerPosition.FirstPlayer);
             game.StartGame();
             Console.WriteLine("Game finished!");
