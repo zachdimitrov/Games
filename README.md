@@ -251,7 +251,7 @@ private IEnumerator Fade()
         var color = this.spriteRend.color;
         color.a -= i;
         this.spriteRend.color = color;
-
+s
         yield return null; // executed every frame
         yield return new WaitForSeconds(0.1f); // executed after fixed time
     }

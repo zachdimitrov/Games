@@ -1,0 +1,18 @@
+body {
+    background: black;
+}
+
+canvas {
+    background: lightgrey;
+    border: 2px solid white;
+    display: block;
+    margin: 0 auto;
+}
+
+#fps {
+    position: absolute;
+    color: white;
+    font-size: 2em;
+    right: 15px;
+    top: 10px;
+}

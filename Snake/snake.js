@@ -1,5 +1,11 @@
 var snakes = (function() {
     var snakePartSize = 15;
+    var directions = [
+        { dx: -1, dy: 0 }, // left
+        { dx: 0, dy: -1 }, // up
+        { dx: 1, dy: 0 }, // right
+        { dx: 0, dy: 1 }, // down
+    ]
 
     function GameObject(x, y, size) {
         this.x = x;
@@ -35,6 +41,7 @@ var snakes = (function() {
         var partX, partY, size = 5;
 
         this.parts = [];
+        this.direction = 2;
         for (let i = 0; i < size; i += 1) {
             partX = x - i * snakePartSize;
             partY = y;
@@ -45,6 +52,40 @@ var snakes = (function() {
 
     Snake.prototype = new GameObject();
     Snake.prototype.constructor = Snake;
+    Snake.prototype.head = function() {
+        return this.parts[0];
+    }
+
+    Snake.prototype.move = function() {
+        var x, y;
+
+        for (let i = this.parts.length - 1; i >= 1; i -= 1) {
+            var position = this.parts[i - 1].getPosition();
+            this.parts[i].changePosition(position.x, position.y);
+        }
+
+        var head = this.head();
+        var dx = directions[this.direction].dx;
+        var dy = directions[this.direction].dy;
+        var headPosition = head.getPosition();
+        var newHeadPosition = { x: headPosition.x + head.size * dx, y: headPosition.y + head.size * dy };
+        head.changePosition(newHeadPosition.x, newHeadPosition.y);
+    }
+
+    Snake.prototype.changeDirection = function(newDirection) {
+        if (newDirection >= 0 && newDirection < directions.length &&
+            (this.direction + newDirection) % 2) {
+            this.direction = newDirection;
+        }
+    }
+
+    Snake.prototype.getPosition = function() {
+        return this.head().getPosition();
+    }
+
+    Snake.prototype.changePosition = function(x, y) {
+        this.head().changePosition(x, y);
+    }
 
     function Wall(x, y, size) {
         GameObject.call(this, x, y, size);
@@ -63,6 +104,13 @@ var snakes = (function() {
     return {
         get: function(x, y, size) {
             return new Snake(x, y, size);
-        }
+        },
+        getFood: function(x, y, size) {
+            return new Food(x, y, size);
+        },
+        SnakeType: Snake,
+        SnakePartType: SnakePart,
+        FoodType: Food,
+        WallType: Wall,
     };
 })();
