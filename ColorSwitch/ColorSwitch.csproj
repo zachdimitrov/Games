@@ -222,7 +222,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\bestScore.cs" />
+    <Compile Include="Assets\Scripts\destroyer.cs" />
+    <Compile Include="Assets\Scripts\halfScreenCheck.cs" />
+    <Compile Include="Assets\Scripts\homeMenu.cs" />
+    <Compile Include="Assets\Scripts\obstacleCloner.cs" />
+    <Compile Include="Assets\Scripts\playerCollision.cs" />
     <Compile Include="Assets\Scripts\playerJump.cs" />
+    <Compile Include="Assets\Scripts\playerStartColor.cs" />
+    <Compile Include="Assets\Scripts\scoreHandler.cs" />
     <Compile Include="Assets\Scripts\startGame.cs" />
     <Compile Include="Assets\Scripts\startupRotate.cs" />
   </ItemGroup>

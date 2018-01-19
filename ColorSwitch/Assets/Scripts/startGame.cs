@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class startGame : MonoBehaviour
 {
-    // Update is called once per frame
     private void OnMouseDown()
     {
         SceneManager.LoadScene("gameplay");
