@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptsTest.CSharp", "ScriptsTest.CSharp.csproj", "{28722C04-5DDF-3DA7-F62F-2E31EC96D19D}"
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptsTest", "ScriptsTest.csproj", "{E2F80805-5CA7-3356-A26C-7DEB5EF1C91C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{28722C04-5DDF-3DA7-F62F-2E31EC96D19D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28722C04-5DDF-3DA7-F62F-2E31EC96D19D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28722C04-5DDF-3DA7-F62F-2E31EC96D19D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28722C04-5DDF-3DA7-F62F-2E31EC96D19D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2F80805-5CA7-3356-A26C-7DEB5EF1C91C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2F80805-5CA7-3356-A26C-7DEB5EF1C91C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2F80805-5CA7-3356-A26C-7DEB5EF1C91C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2F80805-5CA7-3356-A26C-7DEB5EF1C91C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
