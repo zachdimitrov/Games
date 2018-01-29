@@ -21,8 +21,9 @@ public class scoreHandler : MonoBehaviour {
 
         current = int.Parse(PlayerPrefs.GetString("currentScore"));
 
-        if(PlayerPrefs.GetString("hiScore") == null)
+		if(!PlayerPrefs.HasKey("hiScore"))
         {
+			Debug.Log ("set hi score");
             PlayerPrefs.SetString("hiScore", "0");
         }
 

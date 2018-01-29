@@ -13,6 +13,7 @@ TagManager:
   - Point
   - Score
   - Best
+  - GreenEnder
   layers:
   - Default
   - TransparentFX
