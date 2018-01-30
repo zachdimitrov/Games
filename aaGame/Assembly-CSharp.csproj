@@ -52,7 +52,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\levelsChanhe.cs" />
+     <Compile Include="Assets\Scripts\pin.cs" />
+     <Compile Include="Assets\Scripts\pinCollision.cs" />
+     <Compile Include="Assets\Scripts\pinSpawn.cs" />
      <Compile Include="Assets\Scripts\quickPlayButton.cs" />
+     <Compile Include="Assets\Scripts\targetRotation.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>C:/Users/Zahari/Documents/Games/aaGame/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
