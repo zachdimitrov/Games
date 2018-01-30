@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class levelsChanhe : MonoBehaviour {
+public class levelsChange : MonoBehaviour {
 
 	void OnMouseDown()
 	{

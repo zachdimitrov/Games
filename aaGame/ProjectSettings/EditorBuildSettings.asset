@@ -17,3 +17,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuickPlayScene.unity
     guid: b0e89da435a04654ca74fc365b4481ee
+  - enabled: 1
+    path: Assets/Scenes/Level_1.unity
+    guid: 6269c89031014424891f4bbaf89d877a
+  - enabled: 1
+    path: Assets/Scenes/Level_2.unity
+    guid: 8597c3d1516d16842bf0806ce4833167
+  - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: 7c76f3645424b564787959b6cab89865
+  - enabled: 1
+    path: Assets/Scenes/LevelSuccess.unity
+    guid: 924bebfb78ad1f74a89da071fb4592e9
+  - enabled: 1
+    path: Assets/Scenes/LevelFail.unity
+    guid: bcaf1bdbefb9c584987e881ba973a4e9
