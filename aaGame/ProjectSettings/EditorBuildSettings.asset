@@ -32,3 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelFail.unity
     guid: bcaf1bdbefb9c584987e881ba973a4e9
+  - enabled: 1
+    path: Assets/Scenes/Quit.unity
+    guid: 8283ec0b3d869044ba0773dcafd1266e

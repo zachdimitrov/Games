@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Target
   - Pin
+  - PinLevel
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,12 @@ TagManager:
     locked: 0
   - name: Pin
     uniqueID: 986828767
+    locked: 0
+  - name: PinBall
+    uniqueID: 4108825729
+    locked: 0
+  - name: Target
+    uniqueID: 1102221583
     locked: 0
   - name: Player
     uniqueID: 527856595

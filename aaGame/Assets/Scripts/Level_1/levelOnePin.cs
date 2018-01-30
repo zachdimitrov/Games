@@ -31,7 +31,7 @@ public class levelOnePin : MonoBehaviour {
         {
             transform.SetParent(collision.gameObject.transform);
         }
-        else if (collision.tag == "Pin")
+        else if (collision.tag == "PinLevel")
         {
             SceneManager.LoadScene("LevelFail");
         }

@@ -139,7 +139,7 @@ SortingGroup:
   m_GameObject: {fileID: 301247283}
   m_Enabled: 1
   m_SortingLayerID: 1496973433
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
 --- !u!102 &301247285
 TextMesh:
@@ -339,7 +339,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 516521313}
-  m_Text: 20
+  m_Text: 27
   m_OffsetZ: 0
   m_CharacterSize: 0.03
   m_LineSpacing: 1
@@ -500,8 +500,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1167606735
-  m_SortingLayer: 1
+  m_SortingLayerID: 1102221583
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 026907b1f3e88364f9d34e9a0a3b21e9, type: 3}
   m_Color: {r: 0.39949268, g: 0, b: 0.5735294, a: 1}
