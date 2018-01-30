@@ -30,9 +30,9 @@ public class playerCollision : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Obstacle")
+		if (collision.tag == "Obstacle" || collision.tag == "GreenEnder")
         {
-            if (name != "green" && collision.name != name)
+			if (collision.tag == "GreenEnder" || (name != "green" && collision.name != name))
             {
                 switch (name)
                 {
