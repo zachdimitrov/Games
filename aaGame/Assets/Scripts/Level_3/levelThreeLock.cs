@@ -10,11 +10,11 @@ public class levelThreeLock : MonoBehaviour {
     {
         if (PlayerPrefs.GetInt("level") < 3)
         {
-            thisObject.active = true;
+            thisObject.SetActive(true);
         }
         else
         {
-            thisObject.active = false;
+            thisObject.SetActive(false);
         }
     }
 }

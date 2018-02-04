@@ -15,11 +15,11 @@ public class levelThreeButton : MonoBehaviour {
     {
         if (PlayerPrefs.GetInt("level") > 2)
         {
-            thisObject.active = true;
+            thisObject.SetActive(true);
         }
         else
         {
-            thisObject.active = false;
+            thisObject.SetActive(false);
         }
     }
 }

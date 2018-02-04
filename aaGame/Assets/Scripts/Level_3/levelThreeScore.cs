@@ -17,9 +17,10 @@ public class levelThreeScore : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Pin")
+        if (collision.tag == "PinLevel")
         {
             scoreValue++;
+            PlayerPrefs.SetInt("currentScore", scoreValue);
             scoreTxt.text = System.Convert.ToString(scoreValue);
 
             if (scoreValue == 33)
