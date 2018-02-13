@@ -5,6 +5,18 @@ var draw = (function() {
     canvas.width = TETRIS_COLS * TETRIS_BLOCK;
     canvas.height = TETRIS_ROWS * TETRIS_BLOCK;
 
+    function drawTable() {
+        for (let i = 0; i < TETRIS_ROWS; i += 1) {
+            for (let j = 0; j < TETRIS_COLS; j += 1) {
+                if (!table[i][j]) {
+                    continue;
+                }
+
+                const color = table[i][j];
+            }
+        }
+    }
+
     function drawGrid(i) {
         context.strokeStyle = "#ddd";
         context.moveTo(0, i * TETRIS_BLOCK);
@@ -32,3 +44,5 @@ var draw = (function() {
 }());
 
 draw.draw();
+
+// https://youtu.be/gww_4GBZnjc?t=47m7s
