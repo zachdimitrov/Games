@@ -41,3 +41,5 @@ const figures = [{
         [1, 0],
     ],
 }, ];
+
+let gameSpeed = 500;

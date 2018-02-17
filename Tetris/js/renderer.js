@@ -1,7 +1,6 @@
 var renderer = (function() {
     const canvas = document.getElementById("tetris-canvas");
     const context = canvas.getContext("2d");
-
     const { getCellX, getCellY } = engine;
 
     canvas.width = TETRIS_COLS * TETRIS_BLOCK;
