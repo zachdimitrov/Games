@@ -74,9 +74,9 @@ var engine = (function() {
             } else if (ev.key === "ArrowDown") {
                 speed = gameSpeedDown;
             } else if (ev.key === 'q') {
-                // currentFigure.
+                currentFigure.obj.cells = rotateLeft(currentFigure.obj.cells);
             } else if (ev.key === 'w') {
-
+                currentFigure.obj.cells = rotateRight(currentFigure.obj.cells);
             }
         }
     });
