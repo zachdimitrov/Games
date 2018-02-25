@@ -12,7 +12,7 @@ const figures = [{
         [1, 1]
     ],
 }, {
-    color: 'red',
+    color: 'green',
     cells: [
         [1, 0],
         [1, 0],
@@ -20,21 +20,21 @@ const figures = [{
         [1, 0],
     ],
 }, {
-    color: 'red',
+    color: 'purple',
     cells: [
         [1, 0],
         [1, 1],
         [1, 0],
     ],
 }, {
-    color: 'red',
+    color: 'orange',
     cells: [
         [1, 0],
         [1, 0],
         [1, 1],
     ],
 }, {
-    color: 'red',
+    color: 'blue',
     cells: [
         [1, 1],
         [1, 0],
@@ -42,4 +42,6 @@ const figures = [{
     ],
 }, ];
 
-let gameSpeed = 500;
+const gameSpeed = 2;
+const gameSpeedDown = 100;
+let speed = gameSpeed;

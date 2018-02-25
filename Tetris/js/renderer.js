@@ -58,9 +58,11 @@ var renderer = (function() {
         window.requestAnimationFrame(draw);
     }
 
+    draw();
+
     return {
         draw,
     }
 }());
 
-// https://youtu.be/gww_4GBZnjc?t=47m7s
+// https://youtu.be/gww_4GBZnjc?t=1h18m11s

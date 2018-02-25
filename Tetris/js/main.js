@@ -1,2 +1,1 @@
-renderer.draw();
-engine.update();
+// not used for now
