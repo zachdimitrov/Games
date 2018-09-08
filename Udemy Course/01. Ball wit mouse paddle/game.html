@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="game-canvas" width="800" height="600"></canvas>
+    <script>
+        var ballColor = "orange";
+        var backgroundColor = "black";
+        var paddleCOlor = "white";
+
+        var paddleWidth = 100;
+        var paddleHeight = 10;
+        var paddleX = 400;
+        var paddleY = 790;
+
+        var ballSize = 10;
+        var ballX = 400;
+        var ballSpeedX = 5;
+        var ballY = 300;
+        var ballSpeedY = 7;
+        var canvas, context;
+
+        window.onload = function() {
+            canvas = document.getElementById("game-canvas");
+            context = canvas.getContext("2d");
+
+            var framesPerSecond = 30;
+            setInterval(updateAll, 1000 / framesPerSecond);
+        }
+
+        function updateAll() {
+            moveAll();
+            drawAll();
+        }
+
+        function moveAll() {
+            ballX += ballSpeedX;
+            ballY += ballSpeedY;
+
+            if (ballX > canvas.width - ballSize || ballX < ballSize) {
+                ballSpeedX *= -1;
+            }
+
+            if (ballY > canvas.height - ballSize || ballY < ballSize) {
+                ballSpeedY *= -1;
+            }
+        }
+
+        function drawAll() {
+            colorRect(0, 0, canvas.width, canvas.height, backgroundColor); // clear
+            colorCircle(ballX, ballY, ballSize, ballColor); // draw ball
+        }
+
+        function colorRect(topLeftX, topLeftY, boxWidth, boxHeight, fillColor) {
+            context.fillStyle = fillColor;
+            context.fillRect(topLeftX, topLeftY, boxWidth, boxHeight);
+        }
+
+        function colorCircle(centerX, centerY, radius, fillColor) {
+            context.fillStyle = fillColor;
+            context.beginPath();
+            context.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
+            context.fill();
+        }
+    </script>
+</body>
+
+</html>
