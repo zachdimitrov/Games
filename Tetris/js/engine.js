@@ -23,16 +23,16 @@ var engine = (function() {
         return TETRIS_BLOCK * col;
     }
 
-    function checkForCollision(offsetRow, offsetCol) {
-        for (let i = 0; i < currentFigure.obj.cells.length; i++) {
+    function checkForCollision(offsetRow, offsetCol, matrix) {
+        for (let i = 0; i < matrix.length; i++) {
             const row = i + offsetRow;
             if (row < 0) {
                 continue;
             }
-            for (let j = 0; j < currentFigure.obj.cells[i].length; j++) {
+            for (let j = 0; j < matrix[i].length; j++) {
                 const col = j + offsetCol;
 
-                if (currentFigure.obj.cells[i][j] && table[row][col]) {
+                if (matrix[i][j] && table[row][col]) {
                     return true;
                 }
             }
@@ -42,7 +42,7 @@ var engine = (function() {
     }
 
     function update() {
-        let canFall = !checkForCollision(currentFigure.row + 1, currentFigure.col);
+        let canFall = !checkForCollision(currentFigure.row + 1, currentFigure.col, currentFigure.obj.cells);
 
         if (canFall) {
             currentFigure.row += 1;
@@ -65,7 +65,7 @@ var engine = (function() {
     }
 
     window.addEventListener('keydown', function(ev) {
-        let canMove = !checkForCollision(currentFigure.row, currentFigure.col);
+        let canMove = !checkForCollision(currentFigure.row, currentFigure.col, currentFigure.obj.cells);
         if (canMove) {
             if (currentFigure.col > 0 && ev.key === 'ArrowLeft') {
                 currentFigure.col -= 1;
@@ -73,10 +73,16 @@ var engine = (function() {
                 currentFigure.col += 1;
             } else if (ev.key === "ArrowDown") {
                 speed = gameSpeedDown;
-            } else if (ev.key === 'q') {
-                currentFigure.obj.cells = rotateLeft(currentFigure.obj.cells);
-            } else if (ev.key === 'w') {
-                currentFigure.obj.cells = rotateRight(currentFigure.obj.cells);
+            } else if (ev.key === 'q' || ev.key === 'w') {
+                const rotateFunc = (ev.key === 'q' ? rotateLeft : rotateRight)
+                const matrix = rotateFunc(currentFigure.obj.cells);
+                const canRotate = currentFigure.col >= 0 &&
+                    currentFigure.col + matrix[0].length <= TETRIS_COLS &&
+                    !checkForCollision(currentFigure.col, currentFigure.row, matrix);
+
+                if (canRotate) {
+                    currentFigure.obj.cells = matrix;
+                }
             }
         }
     });
