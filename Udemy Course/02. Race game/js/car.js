@@ -11,7 +11,6 @@ function carClass() {
     this.ang = -Math.PI / 2;
     this.myCarPic;
     this.name = "Untitled Car";
-    this.onTrack = true;
 
     this.keyHeldGas = false;
     this.keyHeldReverse = false;
@@ -52,7 +51,7 @@ function carClass() {
 
     this.move = function() {
         this.speed *= speedDecay;
-        if (this.keyHeldGas && this.onTrack) {
+        if (this.keyHeldGas) {
             this.speed += drivePower;
         }
 
@@ -60,15 +59,15 @@ function carClass() {
             this.speed -= reversePower;
         }
 
-        if (Math.abs(this.speed) > minSpeedToTurn) {
-            if (this.keyHeldLeft) {
-                this.ang -= turningForce;
-            }
-
-            if (this.keyHeldRight) {
-                this.ang += turningForce;
-            }
+        //if (Math.abs(this.speed) > minSpeedToTurn) {
+        if (this.keyHeldLeft) {
+            this.ang -= turningForce;
         }
+
+        if (this.keyHeldRight) {
+            this.ang += turningForce;
+        }
+        //}
 
         this.X += Math.cos(this.ang) * this.speed;
         this.Y += Math.sin(this.ang) * this.speed;

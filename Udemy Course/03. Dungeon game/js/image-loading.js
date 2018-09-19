@@ -1,7 +1,6 @@
-var carPic = document.createElement("img");
-var blueCarPic = document.createElement("img");
+var heroPic = document.createElement("img");
 
-var trackPics = [];
+var worldPics = [];
 var picsToLoad = 0;
 
 function countLoadedImages() {
@@ -17,21 +16,19 @@ function startLoadingImages(imgVar, fileName) {
     imgVar.src = "./assets/" + fileName;
 }
 
-function loadImageForTrack(trackCode, fileName) {
-    trackPics[trackCode] = document.createElement("img");
-    startLoadingImages(trackPics[trackCode], fileName);
+function loadImageForWorld(worldCode, fileName) {
+    worldPics[worldCode] = document.createElement("img");
+    startLoadingImages(worldPics[worldCode], fileName);
 }
 
 function loadImages() {
     var imageList = [
-        { varName: carPic, thefile: "car.png" },
-        { varName: blueCarPic, thefile: "car2.png" },
-
-        { trackType: trackRoad, thefile: "track-road.png" },
-        { trackType: trackWall, thefile: "track-wall.png" },
-        { trackType: trackChecker, thefile: "checker.png" },
-        { trackType: trackNature, thefile: "nature.png" },
-        { trackType: trackFlag, thefile: "flag.png" },
+        { varName: heroPic, thefile: "hero.png" },
+        { worldType: worldRoad, thefile: "world-road.png" },
+        { worldType: worldWall, thefile: "world-wall.png" },
+        { worldType: worldChecker, thefile: "checker.png" },
+        { worldType: worldNature, thefile: "nature.png" },
+        { worldType: worldFlag, thefile: "flag.png" },
     ];
 
     picsToLoad = imageList.length;
@@ -40,7 +37,7 @@ function loadImages() {
         if (imageList[i].varName != undefined) {
             startLoadingImages(imageList[i].varName, imageList[i].thefile);
         } else {
-            loadImageForTrack(imageList[i].trackType, imageList[i].thefile);
+            loadImageForWorld(imageList[i].worldType, imageList[i].thefile);
         }
     }
 }

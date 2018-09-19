@@ -73,11 +73,6 @@ function cartrackHandle(car) {
             loadLevel(levelOne);
         } else if (tileHere != trackRoad) {
             car.speed *= -0.8;
-            car.onTrack = false;
-        }
-
-        if (tileHere == trackRoad) {
-            car.onTrack = true;
         }
     }
 }

@@ -19,32 +19,30 @@ function updateMousePos(evt) {
     mouseY = evt.clientY - rect.top - root.scrollTop;
 }
 
-function keySet(keyEvent, whichCar, setTo) {
-    if (keyEvent.keyCode == whichCar.controlKeyLeft) {
-        whichCar.keyHeldLeft = setTo;
+function keySet(keyEvent, whichHero, setTo) {
+    if (keyEvent.keyCode == whichHero.controlKeyLeft) {
+        whichHero.keyHeldLeft = setTo;
     }
 
-    if (keyEvent.keyCode == whichCar.controlKeyRight) {
-        whichCar.keyHeldRight = setTo;
+    if (keyEvent.keyCode == whichHero.controlKeyRight) {
+        whichHero.keyHeldRight = setTo;
     }
 
-    if (keyEvent.keyCode == whichCar.controlKeyUp) {
-        whichCar.keyHeldGas = setTo;
+    if (keyEvent.keyCode == whichHero.controlKeyUp) {
+        whichHero.keyHeldGas = setTo;
     }
 
-    if (keyEvent.keyCode == whichCar.controlKeyDown) {
-        whichCar.keyHeldReverse = setTo;
+    if (keyEvent.keyCode == whichHero.controlKeyDown) {
+        whichHero.keyHeldReverse = setTo;
     }
 }
 
 function keyPressed(evt) {
-    keySet(evt, batmanCar, true);
-    keySet(evt, sedanCar, true);
+    keySet(evt, batman, true);
 }
 
 function keyReleased(evt) {
-    keySet(evt, batmanCar, false);
-    keySet(evt, sedanCar, false);
+    keySet(evt, batman, false);
 }
 
 function setupInput() {
@@ -52,6 +50,5 @@ function setupInput() {
     document.addEventListener("keydown", keyPressed);
     document.addEventListener("keyup", keyReleased);
 
-    sedanCar.setupInput(keyUpArrow, keyRightArrow, keyDownArrow, keyLeftArrow);
-    batmanCar.setupInput(keyW, keyD, keyS, keyA);
+    batman.setupInput(keyUpArrow, keyRightArrow, keyDownArrow, keyLeftArrow);
 }

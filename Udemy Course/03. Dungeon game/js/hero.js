@@ -1,17 +1,15 @@
-const speedDecay = 0.94;
-var drivePower = 0.5;
-var reversePower = 0.2;
+const speedDecay = 0.95;
+var movePower = 0.5;
 const turningForce = 0.1;
 const minSpeedToTurn = 0.5;
 
-function carClass() {
+function heroClass() {
     this.X = 80;
     this.Y = 400;
     this.speed = 0;
     this.ang = -Math.PI / 2;
-    this.myCarPic;
-    this.name = "Untitled Car";
-    this.onTrack = true;
+    this.myHeroPic;
+    this.name = "Untitled Hero";
 
     this.keyHeldGas = false;
     this.keyHeldReverse = false;
@@ -30,19 +28,19 @@ function carClass() {
         this.controlKeyLeft = leftKey;
     }
 
-    this.reset = function(whichImage, carName) {
-        this.myCarPic = whichImage;
-        this.name = carName;
+    this.reset = function(whichImage, heroName) {
+        this.myHeroPic = whichImage;
+        this.name = heroName;
         this.speed = 0;
 
-        for (let j = 0; j < trackRows; j++) {
-            for (let i = 0; i < trackCols; i++) {
+        for (let j = 0; j < worldRows; j++) {
+            for (let i = 0; i < worldCols; i++) {
                 let arrayIndex = rowColToArrayIndex(i, j);
-                if (trackGrid[arrayIndex] == trackPlayer) {
-                    trackGrid[arrayIndex] = trackRoad;
+                if (worldGrid[arrayIndex] == worldPlayer) {
+                    worldGrid[arrayIndex] = worldRoad;
                     this.ang = -Math.PI / 2;
-                    this.X = i * trackW + trackW / 2;
-                    this.Y = j * trackH + trackH / 2;
+                    this.X = i * worldW + worldW / 2;
+                    this.Y = j * worldH + worldH / 2;
                     return;
                 }
             }
@@ -52,12 +50,12 @@ function carClass() {
 
     this.move = function() {
         this.speed *= speedDecay;
-        if (this.keyHeldGas && this.onTrack) {
-            this.speed += drivePower;
+        if (this.keyHeldGas) {
+            this.speed += movePower;
         }
 
         if (this.keyHeldReverse) {
-            this.speed -= reversePower;
+            this.speed -= movePower;
         }
 
         if (Math.abs(this.speed) > minSpeedToTurn) {
@@ -73,10 +71,10 @@ function carClass() {
         this.X += Math.cos(this.ang) * this.speed;
         this.Y += Math.sin(this.ang) * this.speed;
 
-        cartrackHandle(this);
+        heroWorldHandle(this);
     }
 
     this.draw = function() {
-        drawRotatedImage(this.myCarPic, this.X, this.Y, this.ang);
+        drawRotatedImage(this.myHeroPic, this.X, this.Y, this.ang);
     }
 };

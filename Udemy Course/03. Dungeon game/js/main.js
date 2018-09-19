@@ -1,8 +1,7 @@
 var backgroundColor = "black";
 var canvas, context;
 
-var batmanCar = new carClass();
-var sedanCar = new carClass();
+var batman = new heroClass();
 
 window.onload = function() {
     canvas = document.getElementById("game-canvas");
@@ -21,15 +20,12 @@ function startGame() {
 
 
 function updateAll() {
-    batmanCar.move();
-    sedanCar.move();
-    drawtracks();
-    batmanCar.draw();
-    sedanCar.draw();
+    drawWorlds();
+    batman.draw();
+    batman.move();
 }
 
 function loadLevel(level) {
-    trackGrid = level.slice();
-    batmanCar.reset(carPic, "Batmobil");
-    sedanCar.reset(blueCarPic, "Blue Storm");
+    worldGrid = level.slice();
+    batman.reset(heroPic, "Batman");
 }
