@@ -1,9 +1,5 @@
-function drawRotatedImage(bitmap, atX, atY, withAng) {
-    context.save();
-    context.translate(atX, atY);
-    context.rotate(withAng);
-    context.drawImage(bitmap, -bitmap.width / 2, -bitmap.height / 2);
-    context.restore();
+function drawCanvasImage(bitmap, atX, atY) {
+    context.drawImage(bitmap, atX - bitmap.width / 2, atY - bitmap.width / 2);
 }
 
 function colorRect(topLeftX, topLeftY, boxWidth, boxHeight, fillColor) {

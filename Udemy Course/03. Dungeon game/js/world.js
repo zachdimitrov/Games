@@ -1,34 +1,49 @@
-var worldW = 40;
-var worldH = 40;
+var worldW = 50;
+var worldH = 50;
 var worldGap = 1;
-var worldRows = 15;
-var worldCols = 20;
-var levelOne = [
-    4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 1, 1, 1, 1, 1, 1,
-    4, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 4, 1, 0, 0, 0, 0, 1,
-    4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 1,
-    1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1,
-    1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1,
-    1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 4, 4, 1, 1, 4, 1, 0, 0, 1, 4,
-    1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 4, 1, 0, 0, 1, 1, 0, 0, 1, 4,
-    1, 0, 0, 1, 0, 0, 5, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1,
-    1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1,
-    1, 0, 2, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 1,
-    1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 3, 0, 0, 0, 0, 1, 1, 0, 0, 1, 4, 1, 0, 0, 0, 0, 0, 1,
-    1, 0, 3, 0, 0, 0, 0, 0, 1, 1, 1, 4, 4, 4, 1, 0, 0, 0, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 4, 4, 4, 1, 1, 1, 1, 4
+var worldRows = 12;
+var worldCols = 16;
+var levels = [
+    [
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        1, 0, 2, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 3, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ],
+    [
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 5, 0, 1, 4, 4, 1,
+        1, 0, 4, 0, 4, 0, 1, 0, 2, 0, 1, 0, 1, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 5, 1, 1,
+        1, 1, 1, 5, 1, 1, 1, 0, 4, 0, 1, 0, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1,
+        1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 1, 0, 1,
+        1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1,
+        1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+        1, 0, 5, 0, 5, 0, 5, 0, 3, 0, 1, 1, 1, 1, 0, 1,
+        1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 4, 0, 0, 0, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ]
 ];
 
+
 var worldGrid = [];
+var currentLevel = 1;
 
 const worldRoad = 0;
 const worldWall = 1;
 const worldPlayer = 2;
-const worldChecker = 3;
-const worldNature = 4;
-const worldFlag = 5;
+const worldFinish = 3;
+const worldKey = 4;
+const worldDoor = 5;
 
 function rowColToArrayIndex(col, row) {
     return arrayIndex = worldCols * row + col;
@@ -51,8 +66,10 @@ function drawWorlds() {
     for (let j = 0; j < worldRows; j++) {
         for (let i = 0; i < worldCols; i++) {
             var tileKindHere = worldGrid[arrayIndex];
-            var useImage = worldPics[tileKindHere];
-            context.drawImage(useImage, drawTileX, drawTileY);
+            if (tileTypeHasTransparency(tileKindHere)) {
+                context.drawImage(worldPics[worldRoad], drawTileX, drawTileY);
+            }
+            context.drawImage(worldPics[tileKindHere], drawTileX, drawTileY);
             drawTileX += worldW;
             arrayIndex++;
         }
@@ -61,18 +78,6 @@ function drawWorlds() {
     }
 }
 
-function heroWorldHandle(hero) {
-    let heroCol = Math.floor(hero.X / worldW);
-    let heroRow = Math.floor(hero.Y / worldH);
-
-    if (heroCol >= 0 && heroCol < worldCols &&
-        heroRow >= 0 && heroRow < worldRows) {
-        var tileHere = returnTileTypeAtColRow(heroCol, heroRow);
-        if (tileHere == worldChecker) {
-            console.log(hero.name + " WINS!");
-            loadLevel(levelOne);
-        } else if (tileHere != worldRoad) {
-            hero.speed *= -0.8;
-        }
-    }
+function tileTypeHasTransparency(tileType) {
+    return tileType == worldKey || tileType == worldFinish || tileType == worldDoor;
 }

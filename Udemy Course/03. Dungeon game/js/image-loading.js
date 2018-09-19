@@ -26,9 +26,9 @@ function loadImages() {
         { varName: heroPic, thefile: "hero.png" },
         { worldType: worldRoad, thefile: "world-road.png" },
         { worldType: worldWall, thefile: "world-wall.png" },
-        { worldType: worldChecker, thefile: "checker.png" },
-        { worldType: worldNature, thefile: "nature.png" },
-        { worldType: worldFlag, thefile: "flag.png" },
+        { worldType: worldFinish, thefile: "final.png" },
+        { worldType: worldKey, thefile: "key.png" },
+        { worldType: worldDoor, thefile: "door.png" },
     ];
 
     picsToLoad = imageList.length;
