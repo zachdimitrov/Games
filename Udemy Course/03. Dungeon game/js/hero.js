@@ -70,20 +70,24 @@ function heroClass() {
         } else if (nextTile == worldKey) {
             this.keys += 1;
             worldGrid[rowColToArrayIndex(nextCol, nextRow)] = worldRoad;
+            this.X = nextX;
+            this.Y = nextY;
         } else if (nextTile == worldDoor && this.keys > 0) {
             this.keys--;
             worldGrid[rowColToArrayIndex(nextCol, nextRow)] = worldRoad;
+            this.X = nextX;
+            this.Y = nextY;
         } else if (nextTile == worldFinish) {
             console.log(this.name + " WINS!");
-            if (currentLevel >= levels.length) {
+            console.log(currentLevel);
+            if (currentLevel > levels.length - 1) {
                 currentLevel = 0;
             }
-
-            loadLevel(levels[currentLevel].slice());
+            loadLevel(levels[currentLevel]);
+        } else {
+            this.X = nextX;
+            this.Y = nextY;
         }
-
-        this.X = nextX;
-        this.Y = nextY;
     }
 
     this.draw = function() {

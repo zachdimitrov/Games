@@ -15,7 +15,7 @@ function startGame() {
     var framesPerSecond = 30;
     setInterval(updateAll, 1000 / framesPerSecond);
     setupInput();
-    loadLevel(levels[0].slice());
+    loadLevel(levels[0]);
 }
 
 
