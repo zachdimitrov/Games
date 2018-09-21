@@ -84,6 +84,7 @@ function heroClass() {
                 currentLevel = 0;
             }
             loadLevel(levels[currentLevel]);
+            currentLevel++;
         } else {
             this.X = nextX;
             this.Y = nextY;
