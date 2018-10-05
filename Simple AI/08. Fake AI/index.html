@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fake AI</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .scene {
+            float: left;
+            background-color: #333;
+            width: 100%;
+            height: 500px;
+        }
+        
+        .grass {
+            float: left;
+            background-color: darkgreen;
+            width: 100%;
+            height: 90px;
+            color: white;
+            padding: 10px 0 0 10px;
+        }
+        
+        .road {
+            float: left;
+            background-color: #ccc;
+            width: 100%;
+            height: 300px;
+        }
+        
+        .ai {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background-color: orange;
+            top: 150px;
+        }
+        
+        .wall {
+            position: absolute;
+            width: 50px;
+            height: 100px;
+            background-color: red;
+            right: 0px;
+            top: 100px;
+        }
+        
+        #sensor-front,
+        #sensor-left,
+        #sensor-right {
+            position: relative;
+            background-color: white;
+            opacity: 0.3;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+        }
+        
+        #sensor-front {
+            left: 100px;
+            width: 500px !important;
+        }
+        
+        #sensor-left {
+            top: -100px;
+            left: 50px;
+        }
+        
+        #sensor-right {
+            left: 50px;
+            top: -50px;
+        }
+        
+        .debug-area {
+            width: 100%;
+            background-color: black;
+            float: left;
+            height: 100%;
+        }
+        
+        .debug-text-area-cl {
+            float: left;
+            width: 400px;
+            height: 150px;
+        }
+        
+        input {
+            float: left;
+            width: 90px;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scene">
+        <div class="grass" id="top-debug"></div>
+        <div class="road">
+            <div class="ai" id="ai-car">
+                <div id="sensor-front">F</div>
+                <div id="sensor-left">L</div>
+                <div id="sensor-right">R</div>
+            </div>
+            <div class="wall" id="the-wall"></div>
+        </div>
+        <div class="grass"></div>
+    </div>
+    <div class="debug-area">
+        <textarea name="debugTextArea" id="debug-text-area" class="debug-text-area-cl">N / A</textarea>
+        <input type="text" id="steps-done" value="0" />
+        <input type="button" value="Start" onClick="runSimulation(1)" />
+        <input type="button" value="Stop" onClick="runSimulation(0)" />
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
