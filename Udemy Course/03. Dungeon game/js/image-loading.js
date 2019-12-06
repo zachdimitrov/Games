@@ -23,7 +23,7 @@ function loadImageForWorld(worldCode, fileName) {
 
 function loadImages() {
     var imageList = [
-        { varName: heroPic, thefile: "hero.png" },
+        { varName: heroPic, thefile: "hero4.png" },
         { worldType: worldRoad, thefile: "world-road.png" },
         { worldType: worldWall, thefile: "world-wall.png" },
         { worldType: worldFinish, thefile: "final.png" },
